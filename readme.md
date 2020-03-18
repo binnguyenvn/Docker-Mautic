@@ -12,6 +12,6 @@ With loadbalancer [treafik](https://github.com/binnguyenvn/Docker-treafik)
 
 ## Installation
 ![Step 1: Enter to your domain](https://websiteforstudents.com/wp-content/uploads/2018/01/mautic_ubuntu.png)
-![Step 2: Fill Database info](https://websiteforstudents.com/wp-content/uploads/2018/01/mautic_ubuntu_1.png
+![Step 2: Fill Database info](https://websiteforstudents.com/wp-content/uploads/2018/01/mautic_ubuntu_1.png)
 ![Step 3: Enter Admin infomation](https://websiteforstudents.com/wp-content/uploads/2018/01/mautic_ubuntu_2.png)
 
