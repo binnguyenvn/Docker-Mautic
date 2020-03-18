@@ -1,0 +1,46 @@
+version: "3.6"
+
+volumes:
+    mautic-web:
+    mysql:
+
+services:
+  mautic:
+    restart: unless-stopped
+    image: mautic/mautic
+    depends_on:
+      - mysql
+    env_file:
+      - ./.envs 
+    volumes:
+      - mautic-web:/var/www/html
+    networks:
+      - public
+      - private
+    deploy:
+      labels:
+        - "traefik.docker.network=public"
+        - "traefik.port=80"
+        - "traefik.backend=mautic"
+        - "traefik.enable=true"
+        - "traefik.frontend.rule=Host:mautic.risotech.vn"
+        - "traefik.frontend.headers.SSLRedirect=true"
+        - "traefik.frontend.entryPoints=http,https"
+
+  mysql:
+    restart: unless-stopped
+    image: mysql:5.6
+    env_file:
+      - ./.envs 
+    volumes:
+      - mysql:/var/lib/mysql
+    networks:
+      - public
+      - private
+
+networks:
+  private:
+    driver: overlay
+    name: private
+  public:
+    external: true
